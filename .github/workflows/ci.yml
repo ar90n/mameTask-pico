@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake
+        # Ensure we have a C++20 compatible compiler
+        gcc --version
+        
+    - name: Create build directory
+      run: mkdir -p build
+      
+    - name: Configure CMake
+      working-directory: ./build
+      run: cmake ../test
+      
+    - name: Build tests
+      working-directory: ./build
+      run: make
+      
+    - name: Run tests
+      working-directory: ./build
+      run: ./mameTask_tests
