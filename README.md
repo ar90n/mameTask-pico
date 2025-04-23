@@ -30,16 +30,16 @@ mameTask-pico addresses the gap between bare-metal programming, full RTOS soluti
 
 ## Requirements
 
-- **Raspberry Pi Pico SDK** (compatible with the latest version)
-- **C++20 Compatible Compiler** (GCC 10+ or Clang 10+)
-- **CMake** (version 3.13 or higher)
-- **Raspberry Pi Pico** hardware (or compatible RP2040-based board)
+- Raspberry Pi Pico SDK (compatible with the latest version)
+- C++20 Compatible Compiler (GCC 10+ or Clang 10+)
+- CMake (version 3.13 or higher)
+- Raspberry Pi Pico hardware (or compatible RP2040-based board)
 
 ## Installation
 
 ### As Part of Your Project
 
-1. Clone this repository or add it as a submodule:
+1. Clone this repository or add it as a submodule
    ```bash
    # As a submodule
    git submodule add https://github.com/yourusername/mameTask-pico.git
@@ -48,20 +48,20 @@ mameTask-pico addresses the gap between bare-metal programming, full RTOS soluti
    git clone https://github.com/yourusername/mameTask-pico.git
    ```
 
-2. Include the library in your CMakeLists.txt:
+2. Include the library in your CMakeLists.txt
    ```cmake
    add_subdirectory(mameTask-pico)
    target_link_libraries(your_target mameTask-pico)
    ```
 
-3. Include the header in your source files:
+3. Include the header in your source files
    ```cpp
    #include "mameTaskPico.hpp"
    ```
 
 ## Quick Start
 
-Here's a simple example that blinks an LED and prints a status message:
+Here's a simple example that blinks an LED and prints a status message
 
 ```cpp
 #include "pico/stdlib.h"
@@ -146,11 +146,11 @@ runner.run_forever(20);
 
 ## Examples
 
-The `example` directory contains sample programs demonstrating the use of mameTask-pico:
+The `example` directory contains sample programs demonstrating the use of mameTask-pico
 
 ### Blink and Print
 
-Located in `example/blink_and_print`, this example demonstrates:
+Located in `example/blink_and_print`, this example demonstrates
 - Blinking an LED at a regular interval (500ms)
 - Printing status messages at a regular interval (1000ms)
 
@@ -187,20 +187,11 @@ make
 
 Then flash the resulting `mameTask_tests.uf2` file to your Pico.
 
-## Current Status and Roadmap
+## Features
 
-mameTask-pico is in active development. Currently implemented features:
-
-- ✅ Core task scheduling with runtime configurable intervals
-- ✅ Basic task runner with polling mechanism
-- ✅ Helper functions for task creation
-
-Planned features:
-
-- 🔄 Task prioritization
-- 🔄 Task dependencies
-- 🔄 Enhanced timing control (one-shot tasks, task cancellation)
-- 🔄 Advanced task management (dynamic addition/removal)
+- Core task scheduling with runtime configurable intervals
+- Basic task runner with polling mechanism
+- Helper functions for task creation
 
 ## Contributing
 
