@@ -100,7 +100,7 @@ class ScheduledTask
 private:
   async_at_time_worker_t worker;
   F                      callback;
-  unsigned               interval;  // Store interval as a member variable
+  unsigned const         interval;
 
 public:
   /**
@@ -122,26 +122,6 @@ public:
                  async_context_add_at_time_worker_in_ms(context, worker, self->interval);
                },
                .user_data = reinterpret_cast<void*>(this) };
-  }
-
-  /**
-   * @brief Sets a new interval for the task
-   *
-   * @param new_interval The new interval in milliseconds
-   */
-  void set_interval(unsigned new_interval)
-  {
-    interval = new_interval;
-  }
-
-  /**
-   * @brief Gets the current interval for the task
-   *
-   * @return The current interval in milliseconds
-   */
-  unsigned get_interval() const
-  {
-    return interval;
   }
 
   // Allow moving
