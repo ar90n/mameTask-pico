@@ -118,9 +118,6 @@ auto task = create_scheduled_task(500, []() {
     // Task code here
 });
 
-// Change the interval at runtime
-task.set_interval(250);
-
 // Get the current interval
 unsigned current_interval = task.get_interval();
 ```
