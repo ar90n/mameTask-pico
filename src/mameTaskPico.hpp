@@ -124,6 +124,16 @@ public:
                .user_data = reinterpret_cast<void*>(this) };
   }
 
+  /**
+   * @brief Gets the current interval for the task
+   *
+   * @return The current interval in milliseconds
+   */
+  unsigned get_interval() const
+  {
+    return interval;
+  }
+
   // Allow moving
   ScheduledTask(ScheduledTask&&)            = default;
   ScheduledTask& operator=(ScheduledTask&&) = default;
